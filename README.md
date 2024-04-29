@@ -1,5 +1,5 @@
 # Energy Systems Modelling Project
-<img src="https://mechdampiitb.github.io/assets/images/Course%20Reviews/Insti/AE706.jpg" width="1300" height="400" alt="Mech DAMP Blog">
+<img src="https://mechdampiitb.github.io/assets/images/Course%20Reviews/Insti/AE706.jpg" width="1300" height="400" alt="Fluid Flow">
 
 ## Welcome to my <em>Energy Systems Modelling</em> Project repository!
 
