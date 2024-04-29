@@ -8,4 +8,4 @@ Discover my Ansys Projects repository, housing essential projects from my Mechan
 This repository contains resources for Ansys projects in Mechanical Engineering. Each project applies fundamental concepts within the Ansys framework to solve field-relevant problems.
 
 ### 💡 Usage
-Feel free to explore the projects in the different branches and use the code and resources for your learning or reference purposes. If you have any questions or suggestions, please don't hesitate to open an issue or reach out to me.
+Feel free to explore the projects in the different branches and use the resources for your learning or reference purposes. If you have any questions or suggestions, please don't hesitate to open an issue or reach out to me.
