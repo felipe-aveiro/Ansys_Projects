@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Storage>
+  <Project Version="9.1" />
+  <Addins>
+    <addin-list valType="String">[Ansys.ParameterManager.ParameterManagerAddin, Ansys.CFX.CFDPost.CFDPostAddin, Ansys.CFX.CFXCore.CFXCoreAddin, Ansys.Dpdb.DpdbAddin, Ansys.Meshing.Core.Addin, Ansys.DesignModeler.Core.Addin]</addin-list>
+    <Addin Name="Ansys.ParameterManager.ParameterManagerAddin" Version="7.3" />
+    <Addin Name="Ansys.CFX.CFDPost.CFDPostAddin" Version="17.0.0.0" />
+    <Addin Name="Ansys.CFX.CFXCore.CFXCoreAddin" Version="21.2.0.0" />
+    <Addin Name="Ansys.Dpdb.DpdbAddin" Version="4.1">
+      <is-optional-on-resume valType="Boolean">true</is-optional-on-resume>
+    </Addin>
+    <Addin Name="Ansys.Meshing.Core.Addin" Version="21.2.0.0" />
+    <Addin Name="Ansys.DesignModeler.Core.Addin" Version="21.2.0.0" />
+  </Addins>
+  <Containers>
+    <container-map valType="String">{"Scopes": Ansys.ParameterManager.ParameterManagerAddin:scopes, "Geometry": Ansys.DesignModeler.Core.Addin:Geometry, "Mesh": Ansys.Meshing.Core.Addin:SimulationModel, "Setup": Ansys.CFX.CFXCore.CFXCoreAddin:CFXSetupContainer, "Solution": Ansys.CFX.CFXCore.CFXCoreAddin:CFXSolutionContainer, "Results": Ansys.CFX.CFDPost.CFDPostAddin:CFDAnalysisContainer}</container-map>
+    <static-container-ids valType="String">{"Scopes": Scopes}</static-container-ids>
+    <Container Name="Scopes" Version="1.0">
+      <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:scopes</container-type>
+      <static-id valType="String">Scopes</static-id>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 1472, "Input": 1473, "Output": 1472}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Scopes/GlobalScope:GlobalScope" Version="1.0">
+        <class-type valType="String">GlobalScope</class-type>
+        <object-name valType="String">GlobalScope</object-name>
+        <member-data valType="String">{"DisplayText": "GlobalScope", "_fieldExpressionValidationContext": None, "functionProviders": [], "Parent": None}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Geometry" Version="1.0">
+      <container-type valType="String">Ansys.DesignModeler.Core.Addin:Geometry</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">1981</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4268, "Input": 1979, "Output": 1979}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <unique-system-dir valType="String">CFX</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Geometry/SimulationGeneratedMesh:MeshFileObject" Version="1.0">
+        <class-type valType="String">SimulationGeneratedMesh</class-type>
+        <object-name valType="String">MeshFileObject</object-name>
+        <member-data valType="String">{"DisplayText": "MeshFileObject", "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Geometry/Geometry:GeometryDataObject" Version="1.0">
+        <class-type valType="String">Geometry</class-type>
+        <object-name valType="String">GeometryDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "GeometryDataObject", "_geometryFileRelativePath": r"dp0\CFX\DM\CFX.agdb", "_geometryTeamcenterConnection": None, "_geometryPlugInName": "", "GeomFileReference": $$e942aeef-fac0-4cc7-8705-b693a3db3e09, "GeometryImportSolidBodies": True, "GeometryImportSurfaceBodies": True, "GeometryImportLineBodies": True, "GeometryImportParameters": "CADImportParameterType_Independent", "GeometryImportParametersFilter": "", "GeometryImportCadAttributes": True, "GeometryImportCadAttributesFilter": "", "GeometryImportNamedSelections": True, "GeometryImportNamedSelectionsFilter": "", "GeometryImportMaterialProperties": True, "GeometryImportAnalysisType": "AnalysisType_3D", "GeometryImportCadAssociativity": True, "GeometryImportCoordinateSystems": True, "GeometryImportCoordinateSystemsFilter": "", "GeometryImportWorkPoints": True, "GeometryImportSavePartFile": False, "GeometryImportImportUsingInstances": True, "GeometryImportSmartUpdate": True, "GeometryImportComparePartsOnUpdate": "ComparePartsMethod_None", "GeometryImportComparePartsTolerance": "ComparePartsTolerance_Tight", "GeometryImportProcessEnclosures": True, "GeometryImportDecomposeDisjointFaces": True, "GeometryImportMixedResolutionOption": "MixedImport_None", "GeometryImportWeightclass": "ImportWeightclass_Heavyweight", "GeometryImportFacetQuality": "PlugInFacetQuality_Source", "GeometryImportFlattenAssembly": True, "GeometryImportCleanGeometryOnImport": False, "GeometryImportStitchSurfacesOnImport": "StitchPreference_None", "GeometryImportStitchTolerance": 1E-07, "GeometryImportSpaceClaimExplodeUnsharedComponents": True, "Guid": "834ca4e1-139f-426a-a3b8-38ffc5d2b4e0", "ObjectState": 0, "UpstreamConnections": {}, "ImportedFeatures": {}, "IsSpaceClaimGeometry": False, "IsDiscoveryGeometry": False, "IsDiscoveryModeEnabled": False, "_isModelerModeEnabled": False, "AreParametersOutOfDate": False, "RegisteredExternalFilesInfo": {"$$1ee009f1-ea8c-44f8-b79e-f68d6add53f7": {"FilePathInDM": r"C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\PipeAirSoil.stp", "FilePathAfterRepair": r"C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\PipeAirSoil.stp", "IsFileRepaired": False, "CadSourceType": "Step"}, "$$e942aeef-fac0-4cc7-8705-b693a3db3e09": {"FilePathInDM": r"C:\Users\EasyCFD\AppData\Local\Temp\WB_EasyCFD_8580_2\wbnew_files\dp0\CFX\DM\CFX.agdb", "FilePathAfterRepair": r"C:\Users\EasyCFD\AppData\Local\Temp\WB_EasyCFD_8580_2\wbnew_files\dp0\CFX\DM\CFX.agdb", "IsFileRepaired": False, "CadSourceType": "DesignModeler"}}, "AreParametersMigratedFromLegacyDatabaseImport": False}</member-data>
+        <properties-setByUserFlag-data valType="String">["ObjectState"]</properties-setByUserFlag-data>
+      </Object>
+      <Object Name="/Geometry/TransferData:Geometry" Version="1.0">
+        <class-type valType="String">TransferData</class-type>
+        <object-name valType="String">Geometry</object-name>
+        <member-data valType="String">{"DisplayText": "Geometry", "ConnectionKeys": ["80f06c5f-b7e0-45c8-96e0-472865cad728"], "Data": $$4a390169-4d96-4b96-920b-c5f635b824dd}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Mesh" Version="1.0">
+      <container-type valType="String">Ansys.Meshing.Core.Addin:SimulationModel</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2039</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2038, "Input": 2024, "Output": 2024}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Geometry": 1981, "Mesh": 0, "Setup": 0, "Solution": 0, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">CFX</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Mesh/SimulationConnection:SimulationConnection" Version="1.0">
+        <class-type valType="String">SimulationConnection</class-type>
+        <object-name valType="String">SimulationConnection</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationConnection", "_IsAssemblyMeshing": False, "_MeshingSolverSetting": 1, "Caption": "SimulationConnection", "EventIdToDataReferenceMap": {}, "DSIdToDataReferenceMap": {"13": {"CellModel": $$f8b2e851-01af-40de-8f87-50fe70adcbd7}, "10": {"CellModel": $$f8b2e851-01af-40de-8f87-50fe70adcbd7}, "14": {"CellModel": $$f8b2e851-01af-40de-8f87-50fe70adcbd7}}, "Attributes": {}}</member-data>
+      </Object>
+      <Object Name="/Mesh/MechanicalSystemType:SystemType for Fluids||CFX" Version="1.0">
+        <class-type valType="String">MechanicalSystemType</class-type>
+        <object-name valType="String">SystemType for Fluids||CFX</object-name>
+        <member-data valType="String">{"DisplayText": None, "PhysicsType": "Fluids", "AnalysisType": None, "SolverType": "CFX", "PhysicsTypeDisplayString": "CFD", "AnalysisTypeDisplayString": "", "SolverTypeDisplayString": "CFX", "SystemTypeCombination": None, "DelimitedSystemTypeCominbation": None, "SetupEntityType": "SimulationSetup", "SolutionEntityType": "SimulationSolution", "ResultsEntityType": "SimulationResults", "SetupDataEntityType": "MechanicalSetup", "SolutionDataEntityType": "MechanicalSolution", "ResultsDataEntityType": "MechanicalResults", "Id": None, "SystemName": "CFX", "SystemID": "CFX", "ICEngineAutoSetup": False, "ICEngineMeshSettings": "Edit Mesh Settings", "ICEngineMeshPanelValues": None, "RefMeshSize": "0 [mm]"}</member-data>
+      </Object>
+      <Object Name="/Mesh/MeshingMesh:MeshingMeshDataObject" Version="1.0">
+        <class-type valType="String">MeshingMesh</class-type>
+        <object-name valType="String">MeshingMeshDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "MeshingMeshDataObject", "Caption": "Mesh", "MeshId": 14}</member-data>
+        <custom-data>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <ImportedMeshFileType valType="String">0</ImportedMeshFileType>
+          <value-keys valType="String">{"AttentionRequired": System.Boolean, "ImportedMeshFileType": System.Int32}</value-keys>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap>
+            <dictionary-keys valType="String">[CMDBMesh]</dictionary-keys>
+            <CMDBMesh>
+              <Name valType="String">CMDBMesh</Name>
+              <Guid0 valType="String">27bad0d8-fcf2-4073-a249-65548ad0265e</Guid0>
+              <Data valType="String">082b1622-ddbd-4177-a822-a22259abec9a</Data>
+              <UpToDate valType="String">True</UpToDate>
+              <value-keys valType="String">{"Name": System.String, "Guid0": System.String, "Data": System.String, "UpToDate": System.Boolean}</value-keys>
+            </CMDBMesh>
+          </transferDataMap>
+        </custom-data>
+      </Object>
+      <Object Name="/Mesh/MeshingGeneratedMeshOutputProvider:MeshingGeneratedMeshOutputProvider" Version="1.0">
+        <class-type valType="String">MeshingGeneratedMeshOutputProvider</class-type>
+        <object-name valType="String">MeshingGeneratedMeshOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "MeshingGeneratedMeshOutputProvider", "DataConnections": [], "TransferDataObject": $$26528628-45ec-4ae3-bffd-306b8806044b, "VersionNumber": 1, "PMDBFile": None, "ACMOFile": None, "Mechdb": None, "UnitSystem": None}</member-data>
+      </Object>
+      <Object Name="/Mesh/GeneratedMeshOutputForAQWAModelProvider:GeneratedMeshOutputForAQWAModelProvider" Version="1.0">
+        <class-type valType="String">GeneratedMeshOutputForAQWAModelProvider</class-type>
+        <object-name valType="String">GeneratedMeshOutputForAQWAModelProvider</object-name>
+        <member-data valType="String">{"DisplayText": "GeneratedMeshOutputForAQWAModelProvider", "DataConnections": [], "TransferDataObject": $$63ee3655-673e-428d-931f-9d98f3e7dd54, "PMDBFile": None, "ACMOFile": None, "Mechdb": None, "UnitSystem": None}</member-data>
+      </Object>
+      <Object Name="/Mesh/OutputsGeneratedManagerDataEntityType:OutputsGeneratedManagerObject" Version="1.0">
+        <class-type valType="String">OutputsGeneratedManagerDataEntityType</class-type>
+        <object-name valType="String">OutputsGeneratedManagerObject</object-name>
+        <member-data valType="String">{"DisplayText": "OutputsGeneratedManagerObject", "outputGeneratedTimes": {"CMDBMesh": 2024}}</member-data>
+      </Object>
+      <Object Name="/Mesh/MeshProperties:MeshProperties" Version="1.0">
+        <class-type valType="String">MeshProperties</class-type>
+        <object-name valType="String">MeshProperties</object-name>
+        <member-data valType="String">{"DisplayText": "MeshProperties", "saveMeshFileInSeparateFile": False}</member-data>
+      </Object>
+      <Object Name="/Mesh/MeshConversionOptions:MeshConversionOptions" Version="1.0">
+        <class-type valType="String">MeshConversionOptions</class-type>
+        <object-name valType="String">MeshConversionOptions</object-name>
+        <member-data valType="String">{"DisplayText": "MeshConversionOptions", "ToleranceAngle": "45 [degree]", "ForbidCloseComponents": False, "CutAngle": None, "ForceCDBImport": False, "CreateGeometryFaceComponents": True, "CreateGeometryEdgeComponents": True, "CreateGeometryVertexComponents": True, "ComponentKey": "", "GeometryImportAnalysisType": "ThreeDimensional", "BodyGroupingType": "MaterialNumber", "ProcessLineBodies": True, "VertexInsertionAngle": "120 [degree]", "CreateGeometry": True}</member-data>
+      </Object>
+      <Object Name="/Mesh/ContainerConnections:ModelContainerConnections" Version="1.0">
+        <class-type valType="String">ContainerConnections</class-type>
+        <object-name valType="String">ModelContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "ModelContainerConnections", "Connections": {"Geometry": {"$$4a390169-4d96-4b96-920b-c5f635b824dd": {"Geometry": ["80f06c5f-b7e0-45c8-96e0-472865cad728"]}}}}</member-data>
+      </Object>
+      <Object Name="/Mesh/MechanicalModel:MechanicalModel" Version="1.0">
+        <class-type valType="String">MechanicalModel</class-type>
+        <object-name valType="String">MechanicalModel</object-name>
+        <member-data valType="String">{"DisplayText": "MechanicalModel", "Caption": "Model", "File": $$a8193ad2-7625-4a9b-ac96-85a82926d82a, "MeshFile": None, "PrimeMeshFile": None, "EdaFile": None, "SpaceClaimMeshFile": None, "ModelId": 10, "PrototypeId": 13, "ModelHash": "24b6515b-ee28-4851-b21e-020ef7bd2f3e", "GeometryHash": "24b6515b-ee28-4851-b21e-020ef7bd2f3e", "IsResetNotRequired": False}</member-data>
+        <custom-data>
+          <File valType="String">a8193ad2-7625-4a9b-ac96-85a82926d82a</File>
+          <FilePath valType="String"></FilePath>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <ParameterValueModified valType="String">False</ParameterValueModified>
+          <IsModifiedDueToModelAssemblyPropertyChange valType="String">False</IsModifiedDueToModelAssemblyPropertyChange>
+          <IsModifiedDueToMeshConversionPropertyChange valType="String">False</IsModifiedDueToMeshConversionPropertyChange>
+          <AttachType valType="String">0</AttachType>
+          <value-keys valType="String">{"File": System.String, "FilePath": System.String, "AttentionRequired": System.Boolean, "ParameterValueModified": System.Boolean, "IsModifiedDueToModelAssemblyPropertyChange": System.Boolean, "IsModifiedDueToMeshConversionPropertyChange": System.Boolean, "AttachType": System.Int32}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Mesh/MechanicalMeshFile:CMDBMesh" Version="1.0">
+        <class-type valType="String">MechanicalMeshFile</class-type>
+        <object-name valType="String">CMDBMesh</object-name>
+        <member-data valType="String">{"DisplayText": "CMDBMesh", "TransferFile": $$51c94e61-c8b2-4d2f-b296-aadbcc51918d}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Setup" Version="1.0">
+      <container-type valType="String">Ansys.CFX.CFXCore.CFXCoreAddin:CFXSetupContainer</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2286</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2106, "Input": 2285, "Output": 1902}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Geometry": 1981, "Mesh": 2039, "Setup": 0, "Solution": 0, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">CFX</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Setup/CFXSetupProperties:Setup Source" Version="1.0">
+        <class-type valType="String">CFXSetupProperties</class-type>
+        <object-name valType="String">Setup Source</object-name>
+        <member-data valType="String">{"DisplayText": "Setup Source", "DataLinks": {"$$ec881a3e-55a4-4bb2-b461-c63b3140b6b6": $$da0c28e5-97aa-4bd6-8c03-9e9f0446f81b}, "UpstreamContainersRemovedSinceRefresh": False, "State": "UpToDate", "ForceRefresh": False, "ExternalFileMap": {}, "InitCCL": None, "UseInitCCL": False, "DEFFileTimeStamp": 2286, "SolverInputExtendedFiles": [], "CachedANSYSInputFile": None, "PhysicsStatus": "", "AllowAssemblyMeshImport": False, "PhysicsErrSuppressEnabled": False, "PhysicsStatusSummary": "", "ANSYSInputPendingDelete": False, "DeletedMeshIDs": [], "NextMeshID": 2, "SolverInputFile": $$0472c980-079c-4d10-a824-60dc1b1c4f1c, "CaseFile": $$df927529-b703-44f7-b3fa-eff42e19fb62}</member-data>
+        <custom-data>
+          <DataSource1 valType="String">Mesh</DataSource1>
+          <EntityType1 valType="String">SimulationGeneratedMesh</EntityType1>
+          <DataSource2 valType="String">Setup</DataSource2>
+          <EntityType2 valType="String">SimulationGeneratedMesh</EntityType2>
+          <DataSource3 valType="String">Setup</DataSource3>
+          <EntityType3 valType="String">CFXMesh</EntityType3>
+          <DataSource4 valType="String">Setup</DataSource4>
+          <EntityType4 valType="String">FluentTGridMesh</EntityType4>
+          <DataSource5 valType="String">Setup</DataSource5>
+          <EntityType5 valType="String">MechanicalSetup</EntityType5>
+          <value-keys valType="String">{"DataSource1": System.String, "EntityType1": System.String, "DataSource2": System.String, "EntityType2": System.String, "DataSource3": System.String, "EntityType3": System.String, "DataSource4": System.String, "EntityType4": System.String, "DataSource5": System.String, "EntityType5": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Setup/CFXSetup:Setup Provider" Version="1.0">
+        <class-type valType="String">CFXSetup</class-type>
+        <object-name valType="String">Setup Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Setup Provider", "DataSourceRef": $$7dfd6319-a041-481c-b2e8-09bde181b243, "DataConnections": {"2066c993-a5b4-4bf7-b86a-1adbe26256e0": None}, "CFXSolverInputFile": $$0472c980-079c-4d10-a824-60dc1b1c4f1c, "MAPDLSolverInputFile": None}</member-data>
+      </Object>
+      <Object Name="/Setup/SystemCouplingSetupData:Setup Coupling Data" Version="1.0">
+        <class-type valType="String">SystemCouplingSetupData</class-type>
+        <object-name valType="String">Setup Coupling Data</object-name>
+        <member-data valType="String">{"DisplayText": "Setup Coupling Data", "DataConnections": [], "TransferDataObject": None}</member-data>
+      </Object>
+      <Object Name="/Setup/PersistedSystemCouplingData:PersistedSystemCouplingData" Version="1.0">
+        <class-type valType="String">PersistedSystemCouplingData</class-type>
+        <object-name valType="String">PersistedSystemCouplingData</object-name>
+        <member-data valType="String">{"DisplayText": "PersistedSystemCouplingData", "Xml": "", "ParticipantName": ""}</member-data>
+      </Object>
+      <Object Name="/Setup/CFXMeshDataLink:MeshingMeshDataObject" Version="1.0">
+        <class-type valType="String">CFXMeshDataLink</class-type>
+        <object-name valType="String">MeshingMeshDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "MeshingMeshDataObject", "Entity": $$ec881a3e-55a4-4bb2-b461-c63b3140b6b6, "DataType": "CMDBMesh", "ConnectionKey": "27bad0d8-fcf2-4073-a249-65548ad0265e", "RefreshTimestamp": 2039, "ID": 1}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Solution" Version="1.0">
+      <container-type valType="String">Ansys.CFX.CFXCore.CFXCoreAddin:CFXSolutionContainer</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">3047</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3155, "Input": 2339, "Output": 2339}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Geometry": 1981, "Mesh": 2039, "Setup": 2286, "Solution": 2467, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">CFX</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Solution/CFXSolutionProperties:Solution Source" Version="1.0">
+        <class-type valType="String">CFXSolutionProperties</class-type>
+        <object-name valType="String">Solution Source</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Source", "DataLinks": {"$$82ed30a6-79b0-4ebe-92e9-adbb4f48c1e7": $$522fd484-16ab-4ff8-a697-88b05087eed4}, "UpstreamContainersRemovedSinceRefresh": False, "State": "UpToDate", "ForceRefresh": False, "ExternalFileMap": {}, "InitCCL": None, "UseInitCCL": False, "CurrentResultsRef": $$a4122f6c-32a2-425e-bcb7-6d02b2766f5c, "RunDirectory": "", "UpstreamExecutionControlCCL": "", "InitializationOption": "CurrentSolutionData", "CacheSolutionData": False, "KeepLatestSolutionOnly": True, "ExecutionControlOption": "IssueWarning", "HaveExecutionControlConflict": False, "LoadMResOptions": "LastConfigOnly", "FailedRun": None, "SolverPath": "", "SolverArguments": "", "ExecutionControlCCL": r"""&amp;replace SIMULATION CONTROL:
+  EXECUTION CONTROL:
+    EXECUTABLE SELECTION:
+      Double Precision = Off
+      Large Problem = Off
+    END
+    INTERPOLATOR STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+    END
+    PARALLEL HOST LIBRARY:
+      HOST DEFINITION: aula35
+        Host Architecture String = winnt-amd64
+        Installation Root = C:\Program Files\ANSYS Inc\v%v\CFX
+      END
+    END
+    PARTITIONER STEP CONTROL:
+      Multidomain Option = Automatic
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARTITION SMOOTHING:
+        Maximum Partition Smoothing Sweeps = 100
+        Option = Smooth
+      END
+      PARTITIONING TYPE:
+        MeTiS Type = k-way
+        Option = MeTiS
+        Partition Size Rule = Automatic
+      END
+    END
+    RUN DEFINITION:
+      Run Mode = Full
+      Solver Input File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_003.res
+    END
+    SOLVER STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARALLEL ENVIRONMENT:
+        Parallel Host List = aula35*4
+        Start Method = Intel MPI Distributed Parallel
+      END
+    END
+  END
+END
+""", "SolverCommandMode": "Foreground"}</member-data>
+        <custom-data>
+          <DataSource1 valType="String">Setup</DataSource1>
+          <EntityType1 valType="String">CFXSetup</EntityType1>
+          <value-keys valType="String">{"DataSource1": System.String, "EntityType1": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Solution/ComponentSolveSettingsForAddin:ComponentSolveSettingsForAddin" Version="1.0">
+        <class-type valType="String">ComponentSolveSettingsForAddin</class-type>
+        <object-name valType="String">ComponentSolveSettingsForAddin</object-name>
+        <member-data valType="String">{"DisplayText": "ComponentSolveSettingsForAddin", "UpdateOption": "Foreground", "RsmUserString": None, "ConfiguredQueue": {"OptionIcons": None, "OptionLabels": "Local", "Options": "Local", "ReadOnlyOptions": None, "OptionFeatureFlags": None, "OptionFilterFlags": None, "OptionLicenseFlags": None, "Value": "Local"}, "RsmJobName": "Workbench", "EnablePolling": True, "PollingInterval": "120 [s]", "ExecutionMode": "Serial", "NumberOfProcesses": 2}</member-data>
+      </Object>
+      <Object Name="/Solution/ExpertProperties:ExpertProperties" Version="1.0">
+        <class-type valType="String">ExpertProperties</class-type>
+        <object-name valType="String">ExpertProperties</object-name>
+        <member-data valType="String">{"DisplayText": "ExpertProperties", "ImportantNote": "These options are visible because a development environment variable is set", "ExpertPropertiesString": "", "EnableDebug": False, "EnableValidation": False, "EnableTesting": False, "EnableErrorReporting": True, "EnableWarningReporting": True, "EnableInfoReporting": False, "EnableFileBasedCommunication": False, "EnableSocketCommunication": False, "EnableFailureCauseReporting": True}</member-data>
+      </Object>
+      <Object Name="/Solution/ComponentSettingsForRsmDpUpdate:ComponentSettingsForRsmDpUpdate" Version="1.0">
+        <class-type valType="String">ComponentSettingsForRsmDpUpdate</class-type>
+        <object-name valType="String">ComponentSettingsForRsmDpUpdate</object-name>
+        <member-data valType="String">{"DisplayText": "ComponentSettingsForRsmDpUpdate", "SerialOnly": False, "UseLimitOnNumberOfCores": False, "LimitOnNumberOfCores": 2}</member-data>
+      </Object>
+      <Object Name="/Solution/CFXSolution:Solution Provider" Version="1.0">
+        <class-type valType="String">CFXSolution</class-type>
+        <object-name valType="String">Solution Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Provider", "DataSourceRef": $$c1ad7132-ba6a-48b1-aa6a-ebc14a818e1c, "DataConnections": {"be809c44-d763-4182-bdee-68d7e9d50f5a": None}}</member-data>
+      </Object>
+      <Object Name="/Solution/CFXSolutionData:Solution Provider" Version="1.0">
+        <class-type valType="String">CFXSolutionData</class-type>
+        <object-name valType="String">Solution Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Provider", "DataSourceRef": $$c1ad7132-ba6a-48b1-aa6a-ebc14a818e1c, "DataConnections": {}}</member-data>
+      </Object>
+      <Object Name="/Solution/CFXSetupDataLink:Setup Provider" Version="1.0">
+        <class-type valType="String">CFXSetupDataLink</class-type>
+        <object-name valType="String">Setup Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Setup Provider", "Entity": $$82ed30a6-79b0-4ebe-92e9-adbb4f48c1e7, "DataType": None, "ConnectionKey": "2066c993-a5b4-4bf7-b86a-1adbe26256e0", "RefreshTimestamp": 2286}</member-data>
+      </Object>
+      <Object Name="/Solution/CFXSolverRun:Fluid Flow CFX_004" Version="1.0">
+        <class-type valType="String">CFXSolverRun</class-type>
+        <object-name valType="String">Fluid Flow CFX_004</object-name>
+        <member-data valType="String">{"DisplayText": "Fluid Flow CFX_004", "ResultsFile": $$108817aa-4d32-4f90-98fe-26433aad873c, "OutFile": $$dba291db-1ded-4979-973c-9f65ca80be8b, "ExtendedFiles": [$$21e99d53-a774-4e08-a180-c8b7e557fdb8, $$e6f6db0e-8839-4db5-badf-3c49383ab066, $$2a78ef52-5ab6-4835-8727-74fe50e77a82, $$1432ca1a-7fb7-4682-911b-365bfae0101e, $$6ff071df-e3ea-4e3f-8052-fc313f37a03e, $$e1923720-f022-4434-aed9-1e23c72c6573, $$629df080-f591-4d85-ac71-2ab9fe3a48f7, $$82db23d1-9d4d-4d68-9e97-05660a8535eb, $$eaad4e41-87fe-4536-8a1d-8426ae16b391, $$bd46dcd6-4cb7-4d0d-b68a-503b1a3b9581, $$97094c08-50a7-4ab4-81ef-8f3a9cd751e0, $$fa50ddf8-e3ea-4cff-8610-040362ceec7a, $$31fc9e94-1919-4988-aa2d-c7a4b10be371, $$286de259-476b-40b2-b358-2dc9ec077ee5, $$9fe52589-2768-471d-8e0e-e56de6724b71, $$556d2d4e-21f9-4cfb-8470-9c16b4e146e0, $$cb2a99ce-f16c-4e64-be9f-7094675adba0, $$13c26d81-a40b-436e-b3e9-6316879bad32, $$adbb67e6-dc6c-4a13-8403-8be8c43bbf27, $$a32a1ef5-5c19-4814-88cc-40d81589f374, $$14e785f8-8984-47d1-966a-bdfa7c13bd38, $$6771ff18-6334-455a-9c35-e004df501f6b, $$0c641f71-1dc6-40ef-968f-cc1cac3924dd, $$91d08ebd-3602-4245-8a2e-d1ea1a4048a0, $$82847bea-3c3a-4c88-951a-54615e74746c, $$075e2ea5-cfd1-4f18-bed3-59c7406e415a, $$497b43c5-7853-4617-a28e-30799e779f7d, $$f8d602ae-fd78-44ad-9182-7bd1e1873bea, $$96f7650b-718d-42fc-97c0-a90155d7d0f6, $$f84684fe-31a1-443f-809f-99778f5ad4c3, $$f16cdbc2-bfdc-446b-a5a9-b75d21ebe131, $$dd8918e3-7787-4d0a-aba8-a3e02fe4f973, $$01a4d295-059d-4601-9add-0b29facf4bf5, $$8214283a-b953-4d78-89bb-2e3ff0c5b8ee, $$2909d30d-416b-4594-a064-a1907b86f43c, $$eb124060-c7e1-4053-8027-16ed579c8909, $$6796c30b-0d78-4cd1-96cb-63d6135debbb, $$5c8dcb54-062d-4120-8fde-c8d1ebdc0ec4, $$a81cbb6d-50d9-4ccc-97fb-20a2e27a6c83, $$dcb869d0-bf1d-45b6-af39-5e357f6e4654, $$fc288454-bb79-426c-87ce-1d818a8853d4, $$58f9ac46-bfbe-4107-b25a-1a6d912411cf, $$1dfd6b9e-3f1f-4c1f-99d9-ec6636f9b3af, $$e72563cd-a052-4db2-9228-4c7d4d2bc10b, $$42b58274-4d5d-46b4-81ed-622ef851fec6, $$2c844505-c38a-4346-93ff-8ff8fdb0c121, $$f7e286ce-a236-4780-a619-02c52d3f2830, $$19b37b29-35d8-457b-b464-6bc7c9c0e3fe, $$1b637bfa-4d0e-4397-ad71-f5c7415e66a2, $$be2d59a7-ba8b-4460-98b1-8e1c46f9b824, $$649a4947-5052-4802-8667-2275f9174c3b, $$2114e8f8-040e-4ad9-ac0f-9c7fa574b6b1, $$5b799ffe-634f-412f-ae21-6e0b1d20f303, $$26a8f9d6-274c-490a-adcc-761b4b74fc93, $$67171dd1-d4a1-40e9-bbc6-8d1f0546342d, $$37addf8a-c17e-4793-9233-3dc47a2a93a3, $$d9344e94-c7b0-4647-a468-80fc43cd2132, $$33c3b7b7-ce9d-471e-9183-599de99909e1, $$5cccbe17-3a41-4327-9cfe-43745820ef64, $$a78d4702-c2eb-45b4-bada-7a8cf7a2c7da, $$40f52490-c74d-4832-a2f5-d63d123a1408, $$ca087672-d69d-4f55-b30b-e297efbb27b6, $$25b09fa9-e34a-4810-b240-3bf1d7774fc0, $$472fc78c-4fc9-4597-936e-d35db42d35cb, $$62bdb70d-eee3-4434-b4d1-d59e632a4c84, $$277085e7-57fa-49f6-81c5-7a011adbf2a6, $$1f2233fc-4cac-4239-ad64-d8ef4b9cb48b, $$8ef1181e-0bd3-4b9c-9ff6-2d3e8a940169, $$953cf58c-817b-4846-a6bd-bb9d017388ad, $$a17efb82-a6b4-464d-8e6d-541dd2530cc4, $$007da658-7066-435b-a697-2bd416963770, $$5b43795f-1222-4f91-b546-f950ad7a75b3, $$1f766c8f-ac51-4220-a2cd-08526a5fdc07, $$4c348f76-85f7-4550-a2e5-72f2080ef2b3, $$219f6122-7b96-4eef-84f3-7f39c3e7b015, $$7ea3f973-9835-4b8f-9aba-d1fb060f5792, $$2a0b3b58-aefa-4856-94da-f38e839139a2, $$83591d39-d3bc-4b4d-aa50-fe8de8b3309c, $$2f6dbee7-b5d3-41d5-8d06-96e17beb9f8b, $$d09b4777-c1d6-47f7-8a4f-11ddda5e22c1, $$7b255fb3-cca0-4e90-9367-3c41e48d3ddb, $$6bd6953f-4cc6-4d98-ae92-84f07fdfaa8e, $$8a0cc538-c3ea-4cf7-ba79-88249d67a911, $$7a3a5255-a8ee-429e-b565-6a9c400e4dcb, $$98943969-9ddd-49b2-afc3-85f8b191c947, $$895d2527-e4fb-4f74-bf2f-b252e45d27ff, $$463333d3-faad-45f2-b6b0-009abc239809, $$19cc10f6-d348-4a6d-89f4-9f137d0a2e41, $$857061c7-39a5-4336-b464-ba8e467dc605, $$2e6981e7-542f-4613-b821-3c1510f48916, $$c67ed418-16a0-4978-86a3-60649bf6d19f, $$9a95b577-5039-4f5a-a40d-8999ee0d2b89, $$b2bcafa5-f9ae-4307-b291-cf8219cc0604, $$1aa95851-a22e-4fcc-87bf-b2f7a62e17d7, $$4956ff92-85b2-4a70-a8ad-f11b21728ab6, $$0b670550-8163-4f1f-b40e-c554069693b6, $$48eda52f-9669-44f7-bcc4-d8c0defd35ff, $$e0752cec-285f-45a7-9fdb-2de21eaf1e7e, $$6890bdc9-c36e-4059-97e8-c00d9918f80d, $$2db7abed-de53-496a-bb8b-d0d0e9905dd0, $$b7cd77a6-b3e0-4d29-bdc2-40ba306974b4, $$b060b9c7-95ff-40b9-a439-4e26b981d13c, $$f8f6ab79-f0ae-4319-a815-c0bbaa230f7f, $$edb1a55c-3486-4f28-99ca-8cdb49771a35, $$5afc0b0e-6fb3-4022-acd3-633d4d525674, $$8b701fcc-ca1f-44c9-9dd7-17f79dadff93, $$c90c17ea-7f16-4845-ad9f-7bfe3df441f9, $$9277099d-e2ca-4533-b8fa-f20e266dd4e8, $$c9250901-216e-47a5-a7a0-4a561b889883, $$42be9bc8-272d-4952-ac85-24dbb2be14b6, $$f1db2218-0a26-4709-a756-bf7bea7512aa, $$1c4df513-160c-4a9c-a2dd-0b47e99338e9, $$f1c59bed-ce77-4833-a841-e97d4e892733, $$51f5030f-9057-4541-80b7-e49901b3b758, $$723950bc-0410-4134-98c9-0da1d1144954, $$0c50274e-4921-4de1-9f9d-ac462af830a1, $$28baf57b-2e6f-45e4-8810-e7f422fb18eb, $$04b192a3-aeee-46aa-9924-d5a7400d2710, $$f3541dcd-db5d-44ee-aece-a6b1bfa41ad3, $$8b4392a5-cc24-4833-bbc7-8d1aa8f41d8d, $$8d436de7-4fdd-4174-8624-36a91a776fa7, $$092b15ac-4b04-41ac-a36d-0bd6cda44a01, $$2fea28d8-c695-4a7d-b242-d40eb1932062, $$d3158591-b44e-43f1-81a5-4e441e522f28, $$1ea75b02-b70b-4fc5-8c24-7d9b24cd3f25, $$3c1dbb0b-4224-4157-8fbe-05def24117dd, $$bd4db170-156f-4a1d-9870-a4031d4c7941, $$b73a2c02-de7c-4cb6-b0f0-e4e5368c8293, $$9bdd4674-bad1-4fe3-987b-cab26491647c, $$cd9cffc2-cc89-4dcc-9e2a-b286838e6be2, $$02c16ff5-6579-42ec-969d-311e2c80da44, $$e288713a-eef3-45f5-b57b-2f40069a09d2, $$08482116-5379-4bac-b5d7-c1d2f1112baa, $$69e43984-317b-46ed-bb2e-26a74f2e03cf, $$22c1db20-acec-4a4f-bcbf-9ad3bbbc163c, $$e96dfcdc-138d-4f3b-847b-29761e769347, $$0680b36f-5aa2-4dad-83ab-2c77853e2813, $$f599fc5b-5b04-4ee6-b99a-a8d41a100fe8, $$6ffd64fb-6acf-441a-ab60-f40a2206d1c3, $$c90f26ce-ed89-4b25-8b1c-4583e967a5c1, $$d0dc8aac-a267-4cfc-becc-1f2cdb677c30, $$44f52590-afc7-4e0d-abb0-9d6f88af2422, $$607fb550-31d0-45a2-8433-090b4a7ed0a1, $$bc1945c0-20f3-425f-84d7-dbb3fba965c2, $$94a4b4c8-34b7-4aeb-89e9-7b66298b220d, $$605a3b97-aaf0-4715-977d-97ecd1ccdb7c, $$cf1f6de3-c2c3-4a78-9905-935dade586c8, $$cea4f4da-f0d2-4c18-8ad8-e7efe8df6ece, $$eae5c7f8-dc16-470f-a28f-b19a28ad8811, $$c95b3872-f876-455e-b7b3-dbb8282f57b9, $$b29c1d43-db21-469f-8cd1-fc6abfe851b5, $$501d86ac-0ef8-47df-8103-e68f2dc8dbaf, $$03c376ec-6a09-40ed-a653-0b5456fb0bf3, $$153c54f8-9ce3-4e53-9a97-281e80934651, $$b467a0e5-57cb-4987-8fed-67e6aa358ff6, $$a2069f24-d43c-4efe-afdd-9991cb3c8262, $$c2383cab-1956-4ea4-bcbf-bf45a0057ade, $$3771e0d3-2e06-4aec-8b96-2f929d7292e2, $$8b4a65f3-2a7b-4fd2-bcf7-f4648a0bc66a, $$91b9cd4a-e3e6-499d-9026-1df0728474fd, $$3cc643ad-b27e-44a1-967b-5308ed25c09b, $$bc16280b-d950-4398-932d-757b3fde8c2c, $$8b27d3e1-162c-4597-85e6-727810833657, $$820b90d4-29a9-472c-a2d2-347e13d485bd, $$453f8a13-4fbd-42e5-a3d7-22727072666d, $$3f2ca95d-5259-4179-b854-058b357c0a99, $$f9f980b5-1f43-4d0a-a33f-03a6ae05407e, $$4b347135-8fa3-4d80-8363-fc4d81483229, $$5439f496-d2bf-4bfc-831e-e28cf71bb9f4, $$66ab8599-a217-4c9f-a8a8-7043e139e53d, $$9e4fd198-1b98-41e6-939d-9c715bf02016, $$3eab8152-72e3-4b7d-ae61-a576fbbae950, $$392d57bd-47bf-4e90-9a3a-687b381c30c1, $$62321fd8-5bb5-40db-93e3-1d1708a6bab2, $$4f80ad69-acd2-4ab0-8703-95f7880f4b05, $$992542fc-e684-4811-9ff5-3cde86379857, $$6151cbb7-529e-47a0-ad80-050cdf40c8c8, $$86afcc89-64a4-41b0-8bec-8121863d6f4c, $$71b6fb84-b93d-4f03-b5a3-6d77dc2a7542, $$470c18cd-b557-4e00-8214-f081e4c16b28, $$6e4338ee-3183-4516-93b0-3eb71929d8d3, $$f95df2f7-9fdc-4c7a-ad98-9944f32f9da6, $$ac49cfcf-9cd8-421c-aea2-6923f68d5164, $$8c86b364-1038-421e-80a0-94a164e02c99, $$6de1338a-e106-4351-97ed-b19c9edd6d6c, $$27d4b68b-66fa-47c1-8944-4b72818ee9f6, $$f70cb124-982e-4d9d-b948-19b2969ce4cc, $$35d067f2-432d-4b86-9b66-e31fbeae1f4d, $$36c73b3c-900f-4773-a9b9-5eef19da7e5b, $$e3cbc734-d7c0-48bd-ad63-a950b1bca99d, $$e5b602dd-6bc9-4fbf-a047-0ec24b6e8bca, $$928cfa7b-46bf-4000-914a-afed927dc2a7, $$90f5f375-7ec3-4004-bbe4-03524dc82eef, $$0ba5d63d-1849-4d9c-8d72-792b3c617d61, $$1a0b3570-3815-4d84-a0cd-8631b201ea40, $$26dfcf47-3ae2-4104-a9eb-c089aff7fe1b, $$f8dc47d2-6ef8-432e-bfe1-d5dd6f37c916, $$c016c49a-ca21-455c-aed7-7b9659dead2b, $$ff92f9fc-955f-4507-b05b-5c9ea783df1e, $$1abc3ecf-2e4f-4ab5-924a-d9d218fd7fa1, $$87466249-ac53-403f-b68a-7544d0874ccf, $$80ea4721-1d16-405d-9bb8-91075a33db5c, $$ecce77c7-66df-4fc3-b7dc-11190f3d8cf0, $$e602f141-1da9-4f93-905c-57f5549e2911, $$269058fb-12b4-42a8-90c2-26447f0ceabe, $$beb944b0-ba79-4af0-979c-3e74bfa3b4a0, $$b46c0b24-18fd-402c-82fe-d0fb169ec46e, $$08a8bc9f-8002-46e3-91cd-418b3d406c9c, $$ee613ea1-12cf-46cf-b433-7e35b1ead756, $$3b648e8f-f4f8-4db5-b38c-a2773e478e0e, $$647aa5f6-dbf7-40fc-9ef3-beb0cb9902ad, $$017cf2ec-9711-44f7-a9a7-c0de73d8ef9d, $$64c23bca-920b-4b99-94d4-f00e1c28d434, $$81d29bb3-8ceb-4ed9-9d50-19bc462a7ac6, $$1bde016c-d57d-4f6e-888c-d06ccd21aec1, $$9102ebd6-bacd-49f6-ad5c-4dfdd170852b, $$07611b6b-beeb-44e4-8389-ad3870818725, $$357c93e9-235b-4b31-b3cd-73de4f62cf4f, $$d59cf36d-9d9e-461a-b891-3d87fe4380be, $$34176d07-8ecf-4404-8a43-be4a939d58a6, $$97073b7e-c629-4d07-a5ff-50dfc577437c, $$7efcc443-60ee-42dd-9f04-5eddafd75d05, $$f42ffe93-3c6b-45c2-9ff8-cc9debff464d, $$fdb3ef14-9df9-4294-9b6d-cd5feb9ee8d6, $$16f7cd39-9498-4772-8bef-c487b85f4072, $$452bfc20-b836-4796-9d82-8179b13328d9, $$f90982eb-b574-4b7a-8631-9c49ef23bf84, $$6a57368b-5a7b-49df-aae6-5ef0a42521a4, $$b623121e-0704-41ad-9fae-1e8f77c05776, $$1ad4f943-de45-41c6-a306-194a5c416fc2, $$dc03045e-3694-4929-8b92-1c104144c86d, $$c0297968-2781-44e9-b04d-fd92100f8d74, $$2a540170-ac35-463b-9e21-c226b42c49c1, $$ae81ccde-8b9e-4a33-a870-3dc568173935, $$d198210d-1b8a-468d-9681-f83caf7787f7, $$5285204e-35f2-4a57-9641-872575ede006, $$d4cf079d-8dd9-4382-ba70-9b1e8c3722ca, $$678b24bc-8bf3-4b4e-9b6b-6f7ea2f9fbc5, $$33a659bb-ab17-4d33-86c3-3dd19ffff81f, $$c32b875c-e1d2-4161-aebb-b6565cd50977, $$e6fca05b-94a4-4a0b-82d1-7da47e2523cf, $$722a3320-fbd4-46f6-8cbe-843cfc85a8e3, $$60d66e5d-bdb8-4408-8942-c537a815ce67, $$9048266b-ba7a-45de-85af-194a2ff4a500, $$cab10f8e-b4ad-46de-9e3f-82ff8534fe23, $$9c20e7a3-9604-4fbe-a065-b85edc456edd, $$20a192af-a251-4ba2-a2e9-33c631e6feac, $$a032fcf0-a24e-4731-b854-fa50e1f48c72, $$614d4182-1cc3-4eed-bde7-3c45bec142be, $$4cea3b8f-0c38-4dfb-a20d-e729b3f55b1d, $$ac9fb7fb-b5ca-49f4-9b75-c77363fcd8e1, $$c412521e-c53f-416a-b96a-4a9847e49661, $$90dba80b-15e2-4f5a-b19f-7a70c457a175, $$343b41b1-b59f-443f-8837-5dcc56bae48f, $$30e7383e-4802-48d7-b99d-52475e506a7f, $$3ef3ecfd-0930-4839-a369-b847f4da9750, $$6143e18e-ced2-4e0b-8bbd-e8a2dc1c8df2, $$7741b3c4-5ef3-4616-ad57-be8709c1845e, $$a2faaaf9-ba15-465a-9fef-df976cd626a9, $$c34871d3-e0a0-4f11-a4ea-7c77b464f5b0, $$bd2b4432-a221-4468-af74-c326a0ba9334, $$fc39cb23-f455-455c-9383-861a5c37f0f2, $$d12d9945-80f2-4178-bd37-cf56d36a6c24, $$b611a5b9-1599-4619-87ba-1a5df11633b3, $$ee113920-29e2-43ac-907e-cd13ae9afd27, $$137ae352-1522-44c7-9e3f-19dba12107eb, $$29132ebe-e4e2-4773-a229-fa612564f264, $$8a3bb00c-dd43-4c2e-bcb7-828246d3e47f, $$7e6c0ead-9b26-4cd8-9011-40d839ebf2ab, $$c2319a99-fbf4-494c-8377-2fb4e6d2065e, $$75f0c65e-a755-4a21-b599-288abfb781e2, $$a6a76602-969c-4718-8caa-64f38174df32, $$e726efb6-548a-4f35-898a-d1665c7f2b46, $$691726ea-d054-4fe1-b72b-9f15b41497cd, $$eb5c45f2-3abd-42b9-afc0-834daa4c6fbd, $$28addb3f-61ff-4ca3-968c-e94020e22a72, $$58c710b2-dd4d-479e-bf15-7b8246c11ef6, $$52b850cc-55b8-430f-a4a3-e76041f8da01, $$402f4603-0d56-49ae-bd81-240ceb7d37eb, $$6ac346d4-2eaa-422a-86b5-9a18fe267061, $$3e83c61d-020e-4ba6-9fd0-c15e9d6a0738, $$6f14ad57-b9a5-4fb6-ba81-2c0ec97f73ee, $$f4b000c3-5466-483c-8332-fecd2704cdb5, $$e0b5af6b-7258-47fd-acc4-8af9b72f3b54, $$6803a4bc-e7ae-401d-971d-ec158d9bdc5c, $$6a944b6e-97aa-46a7-9ebf-c34f1b4f174c, $$929ae81a-8659-4beb-8abe-9e497e7e07c6, $$b7d0853f-fffa-464e-87f0-90048d5d97ff, $$b50e2b80-4a92-4370-88b2-90460dde42d3, $$dc36a3d2-0d7f-4b97-97b7-fcd182676968, $$9912a7a4-0eb8-4021-96c9-f670c56e27ea, $$35c3d77d-6f6c-4bb2-8fbd-4131458ece42, $$aa199d7c-b33b-4aee-aff7-5e079f511c9f, $$2ac0c15a-7381-48d0-bd64-4c47185c5964, $$8cb24d75-4e0a-4acf-bec6-41bf1b637b82, $$3b44d390-cc56-480e-98a5-3892dc04a104, $$70e7548d-4a4e-4efe-b831-605066744033, $$fb0b429f-df47-4a9b-8049-5c9cb10d35e6, $$45f15244-1968-4381-9dca-a493e52e9adc, $$b5858e2d-651f-45ab-a232-6e8b9f326e60, $$ed985cf0-31c7-4a3f-972e-1ff70b30b8d1, $$7cb5029d-b855-4779-930b-2cc01e9a956a, $$f2be44dc-74c2-4d04-95b1-14ab77f82b4b, $$86718a03-8dfb-4e7c-bbdd-e465ebe6f60b, $$20550b60-9892-4a30-9614-703b3fa346df, $$ed37b981-4282-4b94-8946-a09cd57ba5af, $$7534ed37-7224-4fb0-a21f-6d07395c22e4, $$561b9951-0c4a-4f6b-9eb6-c220e6e1e883, $$8f5bc7ef-1e19-41c3-be12-471e242287e4, $$9a394d31-4c86-4409-bfea-3aa9fc161a6c, $$e3822633-05ed-412c-97d4-bdf122b30731, $$e9a8b49b-406b-4b40-9ec0-79e3353e7fd1, $$6cea0a8e-abfe-4561-982d-31ceeb285e61, $$31c858e1-c14f-47bc-a7c7-fbdaef2ee440, $$d0a23cef-f7ed-494a-8aee-d43260034e2c, $$d029eea3-5db4-458d-a9de-131eeb7c29ff, $$38a15249-d639-4086-b8e2-0a8fb255ac73, $$6aa89d6a-26cb-4b23-8d0f-fbd38183c780, $$b80af393-aa1b-4420-8558-0914dcfe732d, $$52c4930b-9294-4d67-af56-8eb17a2d8dd9, $$87f66f79-921e-4cca-956a-50d800cbecd2, $$4de55018-8d69-4d5c-b7ca-dc2b19ac8779, $$fa06ec32-2e4b-4018-8882-764e16d100b8, $$b9619286-76b0-4d46-800d-d194b8b5dbc6, $$553eb895-8e82-4664-97fa-2b8bef810fe4, $$6eaf801c-6a31-41fe-b21a-ebe771aca280, $$6a64ad76-4d22-4821-b2e8-100c35a852f0, $$ffb61861-3a36-4713-a5c3-737d33024678, $$37ee2e5a-07c1-43fb-8996-961d90b3ad11, $$d759090c-fefc-4df9-8133-3cd895fed996, $$9f3f2b77-01d8-4817-b693-2a3015ba1978, $$5f5c87b8-864c-4497-bd39-a2df2ea6aa45, $$ffd10c62-d45a-49f2-b7e1-fe99e53e5211, $$2f3eb59d-a0ad-44c6-9ec6-099676ce7e6e, $$e3cb73d0-e6c1-448e-9d87-51050a498028, $$93b49bbd-f47b-4400-82d6-363de76f1874, $$0a2656bd-04d3-4c7a-9067-f27524b1a1d3, $$94d90e8b-13df-46c6-b8f0-7b8ebe7f317e, $$80736b9c-3c44-48b6-a342-8da4ba68a31f, $$a6cf21a3-ded1-4250-8dfa-0e538eb29ebb, $$ad7144ef-13d0-4d5c-b9c0-03cf9fbd0349, $$2fdfbd06-1754-4a67-a4a4-f21dc690de57, $$30c06ef4-b9e2-4013-a477-a8a0eea66c31, $$909235af-84ce-43a4-9be6-59e5ca14473c, $$d510b035-47d0-4ef3-8b9c-c3198d26277e, $$cc97b4f7-ef8e-48f3-a10b-b3ebf59faae4, $$4cd21e53-3baf-41b8-882b-cc68fc72ea75, $$975f4f1b-393e-43bd-8d4a-48b83d280e51, $$a8cfa40e-e160-4f00-9556-f19411cdc793, $$9eb979d7-b072-4089-9e67-028b94cef716, $$c1b8fca4-a6b6-44b4-8e54-b8804b8d057a, $$8c7ea733-eaab-40f5-b63e-badf6e124374, $$c3edc736-39cb-4607-b1ca-708e6d0c93c0, $$2bc3e135-a4a7-4494-b144-c5f9bc63ac1a, $$775360a6-0119-46de-a810-89f9891d4ed7, $$e927ad0e-c3e3-4b14-9140-f5b4168b3924, $$d848c223-f4ff-4409-8a7a-f64a3dbf2672, $$1a8db09b-ac90-4adc-9dbd-a9040697cfe7, $$ee5c6764-d420-42c2-93c5-7f6f3f1574df, $$b2311dd7-bfb0-40de-830f-44a3de578391, $$d3c9b8b4-2b11-4d10-a5ab-f8b596180e6a, $$b50fb44c-63dc-4e36-bcc3-cf8fcd2530a6, $$370a6a29-47fc-4691-9364-b7fb7e849d27, $$2168a027-d1b0-4112-b574-fb27d5da8102, $$1ceb2599-ad8c-4613-82a9-247d00a9d647, $$2bb6dc01-b7f3-44cd-ae57-39529c1c4567, $$fa011750-b577-4dca-b31a-11352fa0e439, $$36fd1166-9b2b-4842-b91b-da6bf45e7955, $$7ab143e8-8943-482d-908a-77e57b8fc722, $$fc786cc0-2e93-4c27-a8a9-16b898ce6ed2, $$e892cfd0-d026-47a0-b08d-e9d5f24450fb, $$5ca06389-cff1-4758-be94-beecf4764b8d, $$4a4a3b4d-4f12-444c-b29a-3d9e01d11992, $$d671f860-923a-450d-beb2-328f3e04c9bb, $$fb76b156-be84-4c53-8448-c153559707c2, $$54dd06c0-78aa-4f05-8099-01d29ff46e46, $$71f744dc-7178-4815-9ab1-441c7e5cce4d, $$7058e809-c74c-4087-b13e-01533773d091, $$693627c4-a058-453c-9bc2-5ba09d71a616, $$9e3a71b0-5751-48ff-80b6-d52b9fdfd89c, $$480b9536-4cb0-4776-a234-411235ca5c43, $$9f303757-1f33-4e2d-b323-e17b662299b2, $$73609167-fff3-4d84-8974-2ecb50bc768a, $$c880e64e-e45b-4aaa-9686-6e40827a5b23, $$2a91e10f-28ec-4db8-9f39-d09fe40f7533, $$6cf00422-7453-4bb3-8984-9f28a30e552e, $$4bb54512-6885-402a-ba1d-14e426ac0f63, $$cf682411-186c-413d-a6d9-5ad1a25dbcc6, $$aac54203-d1c7-481c-a2da-7bdae5392493, $$270d922b-7a97-4da9-8af7-8a8f7fca8a88, $$b60b468e-217a-458d-bbdd-44d34eb60791, $$5f84ac34-4fea-4019-9c9a-9121898d4449, $$369126fa-d542-45b9-b441-103edc560582, $$6823a4e0-dd32-402e-b94b-5ff01b122b27], "ANSYSFile": None, "ANSYSRestartDB": None, "BakResultsFile": $$9e3a71b0-5751-48ff-80b6-d52b9fdfd89c, "RunStatus": "Normal", "Imported": False}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Results" Version="1.0">
+      <container-type valType="String">Ansys.CFX.CFDPost.CFDPostAddin:CFDAnalysisContainer</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">4256</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3163, "Input": 4254, "Output": 1935}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "DpdbContainer": 0, "Geometry": 1981, "Mesh": 2039, "Setup": 2286, "Solution": 3047, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">CFX</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Results/CFDResults:Results Source" Version="1.0">
+        <class-type valType="String">CFDResults</class-type>
+        <object-name valType="String">Results Source</object-name>
+        <member-data valType="String">{"DisplayText": "Results Source", "DataLinks": {"$$2ee5c9c0-4044-412a-8903-010b1174d2a8": $$4e8f17ef-f913-4848-9e91-093a004b61b8}, "UpstreamContainersRemovedSinceRefresh": False, "State": "UpToDate", "ForceRefresh": False, "ExternalFileMap": {}, "InitCCL": None, "UseInitCCL": False, "PostStateFile": $$bb5e5787-6e26-4f88-84e8-cddbdaecc47e, "_reportFiles": None, "_htmReportFile": None, "_xmlReportFile": None, "MRESLoadOptionsMsg": "See Solution component properties for multi-configuration options (CFX only).", "ClearState": False, "LoadReport": "None", "CustomReportTemplate": "", "RunSessionScript": False, "UpdateScriptCCL": "", "StateInitializationFile": "", "GenerateReport": False, "ReportName": "Report", "ReportLocationDirectory": "", "LastResultsID": 2}</member-data>
+        <custom-data>
+          <DataSource1 valType="String">Solution</DataSource1>
+          <EntityType1 valType="String">CFXSolution</EntityType1>
+          <value-keys valType="String">{"DataSource1": System.String, "EntityType1": System.String}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Results/CFDAnalysis:Results Provider" Version="1.0">
+        <class-type valType="String">CFDAnalysis</class-type>
+        <object-name valType="String">Results Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Results Provider", "DataSourceRef": $$1f9c115d-cbd2-4087-879b-95b6036b5f3d}</member-data>
+      </Object>
+      <Object Name="/Results/SolutionDataLink:Solution Provider" Version="1.0">
+        <class-type valType="String">SolutionDataLink</class-type>
+        <object-name valType="String">Solution Provider</object-name>
+        <member-data valType="String">{"DisplayText": "Solution Provider", "Entity": $$2ee5c9c0-4044-412a-8903-010b1174d2a8, "DataType": "CFXSolution", "ConnectionKey": "be809c44-d763-4182-bdee-68d7e9d50f5a", "RefreshTimestamp": 3047, "ID": 1, "SecondID": 2, "DataEntityType": "CFXSolution", "SystemName": "CFX", "LastFilename": {"CFXSolution": r"C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_004.res"}}</member-data>
+      </Object>
+    </Container>
+  </Containers>
+</Storage>

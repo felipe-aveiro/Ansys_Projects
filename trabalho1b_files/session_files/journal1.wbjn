@@ -1,0 +1,2738 @@
+# encoding: utf-8
+# 2022 R1
+SetScriptVersion(Version="22.1.217")
+template1 = GetTemplate(
+    TemplateName="Fluid Flow",
+    Solver="CFX")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath=GetAbsoluteUserPathName("felipetassariaveiro2020218786/PipeAirSoil.stp"))
+geometry1.Edit()
+geometry1.Exit()
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+meshComponent1.Update(AllDependencies=True)
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.289196
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   DOMAIN: Air
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Air
+    DOMAIN MODELS: 
+      BUOYANCY MODEL: 
+        Buoyancy Reference Temperature = 25 [C]
+        Gravity X Component = 0 [m s^-2]
+        Gravity Y Component = -g
+        Gravity Z Component = 0 [m s^-2]
+        Option = Buoyant
+        BUOYANCY REFERENCE LOCATION: 
+          Option = Automatic
+        END # BUOYANCY REFERENCE LOCATION:
+      END # BUOYANCY MODEL:
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+      REFERENCE PRESSURE: 
+        Reference Pressure = 1 [atm]
+      END # REFERENCE PRESSURE:
+    END # DOMAIN MODELS:
+    FLUID DEFINITION: Fluid 1
+      Material = Air at 25 C
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Fluid
+      END # MORPHOLOGY:
+    END # FLUID DEFINITION:Fluid 1
+    FLUID MODELS: 
+      COMBUSTION MODEL: 
+        Option = None
+      END # COMBUSTION MODEL:
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+      TURBULENCE MODEL: 
+        Option = k epsilon
+        BUOYANCY TURBULENCE: 
+          Option = None
+        END # BUOYANCY TURBULENCE:
+      END # TURBULENCE MODEL:
+      TURBULENT WALL FUNCTIONS: 
+        Option = Scalable
+      END # TURBULENT WALL FUNCTIONS:
+    END # FLUID MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        Velocity Type = Cartesian
+        CARTESIAN VELOCITY COMPONENTS: 
+          Option = Automatic with Value
+          U = 0 [m s^-1]
+          V = 0 [m s^-1]
+          W = 0 [m s^-1]
+        END # CARTESIAN VELOCITY COMPONENTS:
+        STATIC PRESSURE: 
+          Option = Automatic with Value
+          Relative Pressure = 0 [Pa]
+        END # STATIC PRESSURE:
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+        TURBULENCE INITIAL CONDITIONS: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE INITIAL CONDITIONS:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+  END # DOMAIN:Air
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Pipe
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Pipe
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+    SOLID DEFINITION: Solid 1
+      Material = Steel
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Pipe
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Pipe
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    SOLID DEFINITION: Solid 1
+      Material = Steel
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Pipe
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Pipe
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+    SOLID DEFINITION: Solid 1
+      Material = Steel
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Pipe
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Pipe
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+    SOLID DEFINITION: Solid 1
+      Material = Steel
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Pipe
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Pipe
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+    SOLID DEFINITION: Solid 1
+      Material = Steel
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command=">copy from=/LIBRARY/MATERIAL:Steel, to=/LIBRARY/MATERIAL:Copy of Steel")
+setup1.SendCommand(Command="""LIBRARY: 
+&replace   MATERIAL: Copy of Steel
+    Material Group = CHT Solids,Particle Solids
+    Object Origin = User
+    Option = Pure Substance
+    Thermodynamic State = Solid
+    PROPERTIES: 
+      Option = General Material
+      EQUATION OF STATE: 
+        Density = 7854 [kg m^-3]
+        Molar Mass = 55.85 [kg kmol^-1]
+        Option = Value
+      END # EQUATION OF STATE:
+      REFERENCE STATE: 
+        Option = Specified Point
+        Reference Specific Enthalpy = 0 [J/kg]
+        Reference Specific Entropy = 0 [J/kg/K]
+        Reference Temperature = 25 [C]
+      END # REFERENCE STATE:
+      SPECIFIC HEAT CAPACITY: 
+        Option = Value
+        Specific Heat Capacity = 4.34E+02 [J kg^-1 K^-1]
+      END # SPECIFIC HEAT CAPACITY:
+      THERMAL CONDUCTIVITY: 
+        Option = Value
+        Thermal Conductivity = 60.5 [W m^-1 K^-1]
+      END # THERMAL CONDUCTIVITY:
+    END # PROPERTIES:
+  END # MATERIAL:Copy of Steel
+END # LIBRARY:
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command=">rename from=/LIBRARY/MATERIAL:Copy of Steel,to=Soil")
+setup1.SendCommand(Command="""LIBRARY: 
+&replace   MATERIAL: Soil
+    Material Group = CHT Solids,Particle Solids
+    Object Origin = User
+    Option = Pure Substance
+    Thermodynamic State = Solid
+    PROPERTIES: 
+      Option = General Material
+      EQUATION OF STATE: 
+        Density = 2700 [kg m^-3]
+        Molar Mass = 55.85 [kg kmol^-1]
+        Option = Value
+      END # EQUATION OF STATE:
+      REFERENCE STATE: 
+        Option = Specified Point
+        Reference Specific Enthalpy = 0 [J/kg]
+        Reference Specific Entropy = 0 [J/kg/K]
+        Reference Temperature = 25 [C]
+      END # REFERENCE STATE:
+      SPECIFIC HEAT CAPACITY: 
+        Option = Value
+        Specific Heat Capacity = 1407.4 [J kg^-1 K^-1]
+      END # SPECIFIC HEAT CAPACITY:
+      THERMAL CONDUCTIVITY: 
+        Option = Value
+        Thermal Conductivity = 1.5 [W m^-1 K^-1]
+      END # THERMAL CONDUCTIVITY:
+    END # PROPERTIES:
+  END # MATERIAL:Soil
+END # LIBRARY:
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   DOMAIN: Soil
+    Coord Frame = Coord 0
+    Domain Type = Solid
+    Location = Soil
+    DOMAIN MODELS: 
+      DOMAIN MOTION: 
+        Option = Stationary
+      END # DOMAIN MOTION:
+      MESH DEFORMATION: 
+        Option = None
+      END # MESH DEFORMATION:
+    END # DOMAIN MODELS:
+    INITIALISATION: 
+      Option = Automatic
+      INITIAL CONDITIONS: 
+        TEMPERATURE: 
+          Option = Automatic with Value
+          Temperature = 17 [C]
+        END # TEMPERATURE:
+      END # INITIAL CONDITIONS:
+    END # INITIALISATION:
+    SOLID DEFINITION: Solid 1
+      Material = Soil
+      Option = Material Library
+      MORPHOLOGY: 
+        Option = Continuous Solid
+      END # MORPHOLOGY:
+    END # SOLID DEFINITION:Solid 1
+    SOLID MODELS: 
+      HEAT TRANSFER MODEL: 
+        Option = Thermal Energy
+      END # HEAT TRANSFER MODEL:
+      THERMAL RADIATION MODEL: 
+        Option = None
+      END # THERMAL RADIATION MODEL:
+    END # SOLID MODELS:
+  END # DOMAIN:Soil
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: Air
+&replace     BOUNDARY: Outlet
+      Boundary Type = OUTLET
+      Interface Boundary = Off
+      Location = Outlet
+      BOUNDARY CONDITIONS: 
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        MASS AND MOMENTUM: 
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 0 [Pa]
+        END # MASS AND MOMENTUM:
+        PRESSURE AVERAGING: 
+          Option = Average Over Whole Outlet
+        END # PRESSURE AVERAGING:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:Outlet
+  END # DOMAIN:Air
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: Air
+&replace     BOUNDARY: Air Symmetric
+      Boundary Type = SYMMETRY
+      Interface Boundary = Off
+      Location = Air Symmetric
+    END # BOUNDARY:Air Symmetric
+  END # DOMAIN:Air
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.289196
+    Pan = 0, 0
+    Rotation Quaternion = 0.299364, -0.763173, 0.0451583, 0.570886
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+  DOMAIN: Pipe
+&replace     BOUNDARY: Pipe Symmetric
+      Boundary Type = SYMMETRY
+      Interface Boundary = Off
+      Location = Pipe Symmetric
+    END # BOUNDARY:Pipe Symmetric
+  END # DOMAIN:Pipe
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: Soil
+&replace     BOUNDARY: Soil Symmetric
+      Boundary Type = SYMMETRY
+      Interface Boundary = Off
+      Location = Soil Symmetric
+    END # BOUNDARY:Soil Symmetric
+  END # DOMAIN:Soil
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.289196
+    Pan = 0, 0
+    Rotation Quaternion = -0.101339, -0.885496, -0.0387107, -0.45181
+    
+  END
+
+END
+
+> update
+LIBRARY: 
+  CEL: 
+&replace     FUNCTION: Inlet T
+      Argument Units = [s]
+      FMUI Function = Off
+      GT SUITE Function = Off
+      GT SUITE Turboshaft = Off
+      Option = Interpolation
+      Profile Function = Off
+      Result Units = [K]
+      Table Function = Off
+      INTERPOLATION DATA: 
+        Data Pairs = 3600,301.020,7200,300.640,10800,299.840,14400,299.850,18000,299.590,21600,299.990,25200,300.430,28800,301.020,32400,300.800,36000,301.600,39600,302.550,43200,304.670,46800,307.150,50400,308.650,54000,309.970,57600,309.990,61200,310.320,64800,308.730,68400,308.170,72000,306.990,75600,305.910,79200,304.250,82800,302.610,86400,301.270,90000,300.910,93600,300.720,97200,301.370,100800,302.010,104400,301.600,108000,301.800,111600,302.070,115200,301.730,118800,301.430,122400,301.710,126000,302.330,129600,303.620,133200,306.790,136800,307.630,140400,306.910,144000,306.450,147600,305.760,151200,305.890,154800,305.130,158400,304.420,162000,303.690,165600,302.570,169200,301.770,172800,301.260
+        Extend Max = No
+        Extend Min = No
+        Option = One Dimensional
+      END # INTERPOLATION DATA:
+    END # FUNCTION:Inlet T
+  END # CEL:
+END # LIBRARY:
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""LIBRARY: 
+  CEL: 
+&replace     FUNCTION: Inlet T
+      Argument Units = [s]
+      FMUI Function = Off
+      GT SUITE Function = Off
+      GT SUITE Turboshaft = Off
+      Option = Interpolation
+      Profile Function = Off
+      Result Units = [K]
+      Table Function = Off
+      INTERPOLATION DATA: 
+        Data Pairs = 3600,301.020,7200,300.640,10800,299.840,14400,299.850,18000,299.590,21600,299.990,25200,300.430,28800,301.020,32400,300.800,36000,301.600,39600,302.550,43200,304.670,46800,307.150,50400,308.650,54000,309.970,57600,309.990,61200,310.320,64800,308.730,68400,308.170,72000,306.990,75600,305.910,79200,304.250,82800,302.610,86400,301.270,90000,300.910,93600,300.720,97200,301.370,100800,302.010,104400,301.600,108000,301.800,111600,302.070,115200,301.730,118800,301.430,122400,301.710,126000,302.330,129600,303.620,133200,306.790,136800,307.630,140400,306.910,144000,306.450,147600,305.760,151200,305.890,154800,305.130,158400,304.420,162000,303.690,165600,302.570,169200,301.770,172800,301.260
+        Extend Max = On
+        Extend Min = On
+        Option = One Dimensional
+      END # INTERPOLATION DATA:
+    END # FUNCTION:Inlet T
+  END # CEL:
+END # LIBRARY:
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   ANALYSIS TYPE: 
+    Option = Transient
+    EXTERNAL SOLVER COUPLING: 
+      Option = None
+    END # EXTERNAL SOLVER COUPLING:
+    INITIAL TIME: 
+      Option = Automatic with Value
+      Time = 0 [s]
+    END # INITIAL TIME:
+    TIME DURATION: 
+      Option = Total Time
+      Total Time = 172800 [s]
+    END # TIME DURATION:
+    TIME STEPS: 
+      Option = Timesteps
+      Timesteps = 360 [s]
+    END # TIME STEPS:
+  END # ANALYSIS TYPE:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   ANALYSIS TYPE: 
+    Option = Transient
+    EXTERNAL SOLVER COUPLING: 
+      Option = None
+    END # EXTERNAL SOLVER COUPLING:
+    INITIAL TIME: 
+      Option = Automatic with Value
+      Time = 0 [s]
+    END # INITIAL TIME:
+    TIME DURATION: 
+      Option = Total Time
+      Total Time = 172800 [s]
+    END # TIME DURATION:
+    TIME STEPS: 
+      Option = Timesteps
+      Timesteps = 360 [s]
+    END # TIME STEPS:
+  END # ANALYSIS TYPE:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: Air
+&replace     BOUNDARY: Inlet
+      Boundary Type = INLET
+      Interface Boundary = Off
+      Location = Inlet
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Normal to Boundary Condition
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Static Temperature
+          Static Temperature = Inlet T(t)
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Mass Flow Rate = 0.16889 [kg s^-1]
+          Mass Flow Rate Area = As Specified
+          Option = Mass Flow Rate
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:Inlet
+  END # DOMAIN:Air
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+  DOMAIN: Air
+&replace     BOUNDARY: Inlet
+      Boundary Type = INLET
+      Interface Boundary = Off
+      Location = Inlet
+      BOUNDARY CONDITIONS: 
+        FLOW DIRECTION: 
+          Option = Normal to Boundary Condition
+        END # FLOW DIRECTION:
+        FLOW REGIME: 
+          Option = Subsonic
+        END # FLOW REGIME:
+        HEAT TRANSFER: 
+          Option = Static Temperature
+          Static Temperature = Inlet T(t)
+        END # HEAT TRANSFER:
+        MASS AND MOMENTUM: 
+          Mass Flow Rate = 0.08444 [kg s^-1]
+          Mass Flow Rate Area = As Specified
+          Option = Mass Flow Rate
+        END # MASS AND MOMENTUM:
+        TURBULENCE: 
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END # TURBULENCE:
+      END # BOUNDARY CONDITIONS:
+    END # BOUNDARY:Inlet
+  END # DOMAIN:Air
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.289196
+    Pan = 0, 0
+    Rotation Quaternion = -0.113953, -0.992032, -0.036003, 0.0399254
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Monitor Point 1
+        Cartesian Coordinates = 5 [m], 0 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:Monitor Point 1
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Monitor Point 1
+        Cartesian Coordinates = 4 [m], 0 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:Monitor Point 1
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Monitor Point 1
+        Cartesian Coordinates = 3 [m], 0 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:Monitor Point 1
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.27253, 0.342928
+    Scale = 0.363365
+    Pan = 0, 0
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Monitor Point 1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:Monitor Point 1
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.27253, 0.342928
+    Scale = 0.363365
+    Pan = 0, 0
+    Rotation Quaternion = -0.0800624, 0.0874918, -0.0410214, 0.992096
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Outlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Outlet
+        Option = Expression
+      END # MONITOR POINT:Outlet T
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Inlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Inlet
+        Option = Expression
+      END # MONITOR POINT:Inlet T
+      MONITOR POINT: Outlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Outlet
+        Option = Expression
+      END # MONITOR POINT:Outlet T
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.27253, 0.342928
+    Scale = 1.1838
+    Pan = -0.578184, 2.24532
+    Rotation Quaternion = 0.752274, -0.416837, -0.0664585, 0.505883
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Inlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Inlet
+        Option = Expression
+      END # MONITOR POINT:Inlet T
+      MONITOR POINT: Outlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Outlet
+        Option = Expression
+      END # MONITOR POINT:Outlet T
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.27253, 0.342928
+    Scale = 0.564705
+    Pan = -1.34408, 0.245198
+    Rotation Quaternion = 0.468125, -0.265152, -0.0137652, 0.842834
+    
+  END
+
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Inlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Inlet
+        Option = Expression
+      END # MONITOR POINT:Inlet T
+      MONITOR POINT: Outlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Outlet
+        Option = Expression
+      END # MONITOR POINT:Outlet T
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Absolute Pressure
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   SOLVER CONTROL: 
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME: 
+      Option = High Resolution
+    END # ADVECTION SCHEME:
+    CONVERGENCE CONTROL: 
+      Maximum Number of Coefficient Loops = 10
+      Minimum Number of Coefficient Loops = 1
+      Timescale Control = Coefficient Loops
+    END # CONVERGENCE CONTROL:
+    CONVERGENCE CRITERIA: 
+      Conservation Target = 0.01
+      Residual Target = 0.00001
+      Residual Type = RMS
+    END # CONVERGENCE CRITERIA:
+    INTERRUPT CONTROL: 
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS: 
+        Option = Default Conditions
+      END # CONVERGENCE CONDITIONS:
+    END # INTERRUPT CONTROL:
+    TRANSIENT SCHEME: 
+      Option = Second Order Backward Euler
+      TIMESTEP INITIALISATION: 
+        Option = Automatic
+      END # TIMESTEP INITIALISATION:
+    END # TRANSIENT SCHEME:
+  END # SOLVER CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   SOLVER CONTROL: 
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME: 
+      Option = High Resolution
+    END # ADVECTION SCHEME:
+    CONVERGENCE CONTROL: 
+      Maximum Number of Coefficient Loops = 10
+      Minimum Number of Coefficient Loops = 1
+      Timescale Control = Coefficient Loops
+    END # CONVERGENCE CONTROL:
+    CONVERGENCE CRITERIA: 
+      Conservation Target = 0.01
+      Residual Target = 0.00001
+      Residual Type = RMS
+    END # CONVERGENCE CRITERIA:
+    INTERRUPT CONTROL: 
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS: 
+        Option = Default Conditions
+      END # CONVERGENCE CONDITIONS:
+    END # INTERRUPT CONTROL:
+    TRANSIENT SCHEME: 
+      Option = Second Order Backward Euler
+      TIMESTEP INITIALISATION: 
+        Option = Automatic
+      END # TIMESTEP INITIALISATION:
+    END # TRANSIENT SCHEME:
+  END # SOLVER CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.SendCommand(Command="""FLOW: Flow Analysis 1
+&replace   SOLVER CONTROL: 
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME: 
+      Option = High Resolution
+    END # ADVECTION SCHEME:
+    CONVERGENCE CONTROL: 
+      Maximum Number of Coefficient Loops = 10
+      Minimum Number of Coefficient Loops = 1
+      Timescale Control = Coefficient Loops
+    END # CONVERGENCE CONTROL:
+    CONVERGENCE CRITERIA: 
+      Conservation Target = 0.01
+      Residual Target = 0.00001
+      Residual Type = RMS
+    END # CONVERGENCE CRITERIA:
+    INTERRUPT CONTROL: 
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS: 
+        Option = Default Conditions
+      END # CONVERGENCE CONDITIONS:
+    END # INTERRUPT CONTROL:
+    TRANSIENT SCHEME: 
+      Option = Second Order Backward Euler
+      TIMESTEP INITIALISATION: 
+        Option = Automatic
+      END # TIMESTEP INITIALISATION:
+    END # TRANSIENT SCHEME:
+  END # SOLVER CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.Exit()
+Save(Overwrite=True)
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.SetExecutionControl(CCL=r"""&replace SIMULATION CONTROL:
+  EXECUTION CONTROL:
+    EXECUTABLE SELECTION:
+      Double Precision = Off
+      Large Problem = Off
+    END
+    INTERPOLATOR STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+    END
+    PARTITIONER STEP CONTROL:
+      Multidomain Option = Automatic
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARTITION SMOOTHING:
+        Maximum Partition Smoothing Sweeps = 100
+        Option = Smooth
+      END
+      PARTITIONING TYPE:
+        MeTiS Type = k-way
+        Option = MeTiS
+        Partition Size Rule = Automatic
+      END
+    END
+    RUN DEFINITION:
+      Run Mode = Full
+      Solver Input File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX.def
+    END
+    SOLVER STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARALLEL ENVIRONMENT:
+        Parallel Host List = aula35*4
+        Start Method = Intel MPI Distributed Parallel
+      END
+    END
+  END
+END
+""")
+solutionComponent1 = system1.GetComponent(Name="Solution")
+solutionComponent1.Update(Force=True)
+solution1.Exit()
+setup1.Edit()
+setup1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.27253, 0.342928
+    Scale = 0.342367
+    Pan = 0, 0
+    Rotation Quaternion = 0.468125, -0.265152, -0.0137652, 0.842834
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+> update
+FLOW: Flow Analysis 1
+&replace   OUTPUT CONTROL: 
+    MONITOR OBJECTS: 
+      MONITOR BALANCES: 
+        Option = Full
+      END # MONITOR BALANCES:
+      MONITOR FORCES: 
+        Option = Full
+      END # MONITOR FORCES:
+      MONITOR PARTICLES: 
+        Option = Full
+      END # MONITOR PARTICLES:
+      MONITOR POINT: Inlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Inlet
+        Option = Expression
+      END # MONITOR POINT:Inlet T
+      MONITOR POINT: Outlet T
+        Coord Frame = Coord 0
+        Expression Value = areaAve(Temperature)@Outlet
+        Option = Expression
+      END # MONITOR POINT:Outlet T
+      MONITOR POINT: T1
+        Cartesian Coordinates = 3 [m], -0.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Temperature
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T1
+      MONITOR POINT: T2
+        Cartesian Coordinates = 3 [m], -0.9 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Temperature
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T2
+      MONITOR POINT: T3
+        Cartesian Coordinates = 3 [m], -1.5 [m], 0 [m]
+        Coord Frame = Coord 0
+        Option = Cartesian Coordinates
+        Output Variables List = Temperature
+        MONITOR LOCATION CONTROL: 
+          Interpolation Type = Nearest Vertex
+        END # MONITOR LOCATION CONTROL:
+        POSITION UPDATE FREQUENCY: 
+          Option = Initial Mesh Only
+        END # POSITION UPDATE FREQUENCY:
+      END # MONITOR POINT:T3
+      MONITOR RESIDUALS: 
+        Option = Full
+      END # MONITOR RESIDUALS:
+      MONITOR TOTALS: 
+        Option = Full
+      END # MONITOR TOTALS:
+    END # MONITOR OBJECTS:
+    RESULTS: 
+      File Compression Level = Default
+      Option = Standard
+    END # RESULTS:
+    TRANSIENT RESULTS: Transient Results 1
+      File Compression Level = Default
+      Option = Standard
+      OUTPUT FREQUENCY: 
+        Option = Every Timestep
+      END # OUTPUT FREQUENCY:
+    END # TRANSIENT RESULTS:Transient Results 1
+  END # OUTPUT CONTROL:
+END # FLOW:Flow Analysis 1
+
+
+PARAMETERIZATION:
+END""")
+setup1.Exit()
+solution1.Exit()
+solutionComponent1.Update(AllDependencies=True)
+solutionComponent1.Update(AllDependencies=True)
+solution1.SetExecutionControl(CCL=r"""&replace SIMULATION CONTROL:
+  EXECUTION CONTROL:
+    EXECUTABLE SELECTION:
+      Double Precision = Off
+      Large Problem = Off
+    END
+    INTERPOLATOR STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+    END
+    PARALLEL HOST LIBRARY:
+      HOST DEFINITION: aula35
+        Host Architecture String = winnt-amd64
+        Installation Root = C:\Program Files\ANSYS Inc\v%v\CFX
+      END
+    END
+    PARTITIONER STEP CONTROL:
+      Multidomain Option = Automatic
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARTITION SMOOTHING:
+        Maximum Partition Smoothing Sweeps = 100
+        Option = Smooth
+      END
+      PARTITIONING TYPE:
+        MeTiS Type = k-way
+        Option = MeTiS
+        Partition Size Rule = Automatic
+      END
+    END
+    RUN DEFINITION:
+      Run Mode = Full
+      Solver Input File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_003.res
+    END
+    SOLVER STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+      END
+      PARALLEL ENVIRONMENT:
+        Parallel Host List = aula35*4
+        Start Method = Intel MPI Distributed Parallel
+      END
+    END
+  END
+END
+""")
+solutionComponent1.Update(Force=True)
+solution1.Exit()
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.289196
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+> autolegend plot=/STREAMLINE:Streamline 1, view=VIEW:View 1""")
+results1.SendCommand(Command="""STREAMLINE:Streamline 1
+Absolute Tolerance = 0.0 [m]
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Cross Periodics = On
+Culling Mode = No Culling
+Domain List = Air
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Draw Streams = On
+Draw Symbols = Off
+Grid Tolerance = 0.01
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = Inlet
+Locator Sampling Method = Equally Spaced
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 25
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Number of Samples = 25
+Number of Sides = 8
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Max Number
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Seed Point Type = Equally Spaced Samples
+Simplify Geometry = Off
+Specular Lighting = On
+Stream Drawing Mode = Line
+Stream Initial Direction = 0 , 0 , 0 
+Stream Size = 1.0
+Stream Symbol = Ball
+Streamline Direction = Forward
+Streamline Maximum Periods = 20
+Streamline Maximum Segments = 10000
+Streamline Maximum Time = 0.0 [s]
+Streamline Periodic Time Interval = -1 [s]
+Streamline Type = 3D Streamline
+Streamline Width = 2
+Surface Drawing = Smooth Shading
+Surface Streamline Direction = Forward and Backward
+Symbol Size = 1.0
+Symbol Start Time = 10.0 [s]
+Symbol Stop Time = -10.0 [s]
+Symbol Time Interval = 1.0 [s]
+Tolerance Mode = Grid Relative
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /STREAMLINE:Streamline 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.307538
+    Pan = 0, 0
+    Rotation Quaternion = 0, 1, 0, 6.12323e-17
+    
+  END
+
+END
+
+> update
+STREAMLINE:Streamline 1
+Absolute Tolerance = 0.0 [m]
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Cross Periodics = On
+Culling Mode = No Culling
+Domain List = Air
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Draw Streams = On
+Draw Symbols = Off
+Grid Tolerance = 0.01
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = Inlet
+Locator Sampling Method = Equally Spaced
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 25
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Number of Samples = 15
+Number of Sides = 8
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Max Number
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Seed Point Type = Equally Spaced Samples
+Simplify Geometry = Off
+Specular Lighting = On
+Stream Drawing Mode = Line
+Stream Initial Direction = 0 , 0 , 0 
+Stream Size = 1.0
+Stream Symbol = Ball
+Streamline Direction = Forward
+Streamline Maximum Periods = 20
+Streamline Maximum Segments = 10000
+Streamline Maximum Time = 0.0 [s]
+Streamline Periodic Time Interval = -1 [s]
+Streamline Type = 3D Streamline
+Streamline Width = 2
+Surface Drawing = Smooth Shading
+Surface Streamline Direction = Forward and Backward
+Symbol Size = 1.0
+Symbol Start Time = 10.0 [s]
+Symbol Stop Time = -10.0 [s]
+Symbol Time Interval = 1.0 [s]
+Tolerance Mode = Grid Relative
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.356649
+    Pan = 0, 0
+    Rotation Quaternion = 0, 1, 0, 6.12323e-17
+    
+  END
+
+END
+
+> update
+> autolegend plot=/DEFAULT LEGEND:Default Legend View 1, view=VIEW:View 1""")
+results1.SendCommand(Command="""DEFAULT LEGEND:Default Legend View 1
+Colour = 0, 0, 0
+Font = Sans Serif
+Legend Aspect = 0.07
+Legend Format = %5.2f
+Legend Orientation = Vertical
+Legend Position = 0.02 , 0.15 
+Legend Size = 0.6
+Legend Ticks = 5
+Legend Title = Legend
+Legend Title Mode = Variable and Location
+Legend X Justification = Left
+Legend Y Justification = Top
+Show Legend Units = On
+Text Colour Mode = Default
+Text Height = 0.024
+Text Rotation = 0
+END""")
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Contour 1, view=VIEW:View 1")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Total Temperature
+Colour Variable Boundary Values = Hybrid
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = Air Symmetric,Pipe Symmetric,Soil Symmetric
+Max = 0.0 [C]
+Min = 0.0 [C]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [C],1 [C]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Contour 1, view=/VIEW:View 1""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Total Temperature
+Colour Variable Boundary Values = Hybrid
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = Air Symmetric,Pipe Symmetric,Soil Symmetric
+Max = 0.0 [C]
+Min = 0.0 [C]
+Number of Contours = 200
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [C],1 [C]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.677738
+    Pan = 0, 0
+    Rotation Quaternion = 0.0377471, 0.923683, 0.16328, -0.344565
+    
+  END
+
+END
+
+> update
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Inlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Inlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Inlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Inlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Soil Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Pipe Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Fluid Solid Interface in Air Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Total Temperature
+Colour Variable Boundary Values = Hybrid
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = Air Symmetric
+Max = 0.0 [C]
+Min = 0.0 [C]
+Number of Contours = 200
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [C],1 [C]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.556251
+    Pan = 0, 0
+    Rotation Quaternion = 0.0377471, 0.923683, 0.16328, -0.344565
+    
+  END
+
+END
+
+> update
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 2, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Outlet, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Default Solid Solid Interface Side 1, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Default, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Total Temperature
+Colour Variable Boundary Values = Hybrid
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = Air Symmetric,Pipe Symmetric,Soil Symmetric
+Max = 0.0 [C]
+Min = 0.0 [C]
+Number of Contours = 200
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [C],1 [C]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.758756
+    Pan = 2.43587, 0.453501
+    Rotation Quaternion = -0.0847797, 0.953624, 0.133693, -0.25601
+    
+  END
+
+END
+
+> update
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Air
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Soil Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Pipe
+>highlight regionlist=/DATA READER/CASE:Case CFX/BOUNDARY:Air Symmetric;/DATA READER/CASE:Case CFX/BOUNDARY:Pipe Symmetric, domainlist=/DATA READER/CASE:Case CFX/DOMAIN:Soil""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Temperature
+Colour Variable Boundary Values = Hybrid
+Constant Contour Colour = Off
+Contour Range = Local
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = Air Symmetric,Pipe Symmetric,Soil Symmetric
+Max = 0.0 [C]
+Min = 0.0 [C]
+Number of Contours = 200
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [C],1 [C]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command=r"""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 3.165, -1.5, 0.5
+    Scale = 0.212963
+    Pan = 2.43587, 0.453501
+    Rotation Quaternion = -0.121988, 0.984729, 0.124185, 0.00249611
+    
+  END
+
+END
+
+> update
+DATA READER:
+  Active Case Name = Case CFX
+  Current Results File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_004.res
+  Master Results File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_004.res
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END""")
+results1.SendCommand(Command="> load timestep=122")
+results1.SendCommand(Command="> load timestep=480")
+results1.SendCommand(Command=r"""DATA READER:
+  Active Case Name = Case CFX
+  Current Results File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_004.res
+  Master Results File = C:\Users\EasyCFD\Documents\felipetassariaveiro2020218786\trabalho1b_files\dp0\CFX\CFX\Fluid Flow CFX_004.res
+END
+DATA READER:
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END
+ANIMATION: ANIMATION
+TimeAnim Viewer Animation = Off
+TimeAnim Viewer Animation Type = Sweep
+TimeAnim Object List = 
+TimeAnim Control Case = Case CFX
+TimeAnim Control Variable = Timestep
+TimeAnim Speed Control = Off
+TimeAnim Frame Interval = All Timesteps
+TimeAnim Frame Spacing = Equal In Time
+TimeAnim Number Of Frames = 21
+TimeAnim Timestep Interval = 2
+TimeAnim Specify Range = Off
+TimeAnim MPEG Filename = C:/Users/EasyCFD/Documents/CFX.wmv
+TimeAnim Save MPEG = Off
+TimeAnim Looping Cycles = 1
+Video Format = wmv
+END
+>load timestep=86""")
+results1.SendCommand(Command="""DATA READER:
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END
+ANIMATION: ANIMATION
+TimeAnim Viewer Animation = Off
+TimeAnim Viewer Animation Type = Sweep
+TimeAnim Object List = 
+TimeAnim Control Case = Case CFX
+TimeAnim Control Variable = Timestep
+TimeAnim Speed Control = Off
+TimeAnim Frame Interval = All Timesteps
+TimeAnim Frame Spacing = Equal In Time
+TimeAnim Number Of Frames = 21
+TimeAnim Timestep Interval = 2
+TimeAnim Specify Range = Off
+TimeAnim MPEG Filename = C:/Users/EasyCFD/Documents/CFX.wmv
+TimeAnim Save MPEG = Off
+TimeAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate timestepAnimate""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>hide /STREAMLINE:Streamline 1, view=/VIEW:View 1""")
+results1.Exit()
+Save(Overwrite=True)
+system1.DisplayText = "Non-refined mesh, steel pipe,"
+setup1.Edit()
+setup1.Exit()
+solution1.DisplayMonitors()
+solution1.Exit()
+system1.DisplayText = "Non-refined mesh, steel pipe, Courant number non-fixed"
+Save(Overwrite=True)
+Save(Overwrite=True)
